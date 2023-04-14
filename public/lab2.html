@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Hatbol Negyet (Mastermind)</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" type='text/css' media='screen' href="lab2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="lab2.css" />
   </head>
   <body>
     <canvas id="canvas" width="200" height="400"></canvas>
     <p id="youwin" class="youwin">You Win!</p>
     <p id="youlose" class="youlose">You Lose!</p>
-    <form>
+    <form id="colorform">
       <label for="color1">Color 1:</label>
       <select name="color1" id="color1">
         <option value="purple">Purple</option>
@@ -48,8 +48,8 @@
         <option value="blue">Blue</option>
         <option value="yellow">Yellow</option>
       </select>
-      <input type="submit" value="Submit" onclick="fillNextRow()">
+      <input type="submit" value="Submit" onclick="fillNextRow()" />
     </form>
-    <script src='lab2.js'></script>
+    <script src="lab2.js"></script>
   </body>
 </html>
