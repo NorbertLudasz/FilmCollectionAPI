@@ -8,10 +8,10 @@ for (let i = 0; i < 4; i++) {
   let newColor = false;
   while (!newColor) {
     const index = Math.round(Math.random() * 5);
-    //console.log(index);
+    // console.log(index);
     const color = colors[index];
     if (generatedColors.includes(color)) {
-      //console.log('regenerating color');
+      // console.log('regenerating color');
       newColor = false;
     } else {
       generatedColors[i] = color;
@@ -20,13 +20,13 @@ for (let i = 0; i < 4; i++) {
   }
 }
 
-//console.log(generatedColors);
+// console.log(generatedColors);
 
 let currentRow = 0;
 
 function fillNextRow() {
   event.preventDefault();
-  //console.log('entered fillnextrow');
+  // console.log('entered fillnextrow');
   const color1 = document.getElementById('color1').value;
   const color2 = document.getElementById('color2').value;
   const color3 = document.getElementById('color3').value;
@@ -88,7 +88,7 @@ function fillNextRow() {
     displayedLen = displayedLen + 1;
   }
 
-  //console.log(displayedColors);
+  // console.log(displayedColors);
 
   for (let currentColumn = 0; currentColumn < 4; currentColumn++) {
     context.fillStyle = displayedColors[currentColumn];
@@ -98,13 +98,13 @@ function fillNextRow() {
   currentRow++;
 
   if (displayedColors[3] == 'white') {
-    //console.log("You win!");
+    // console.log("You win!");
     const pWin = document.getElementById('youwin');
     pWin.style.display = 'block';
   }
 
   if (currentRow > 7) {
-    //console.log("You lose!");
+    // console.log("You lose!");
     const pLose = document.getElementById('youlose');
     pLose.style.display = 'block';
   }
