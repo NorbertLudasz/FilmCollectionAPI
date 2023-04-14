@@ -159,9 +159,12 @@ h2.newclass, h3.newclass{
     width:800px
 }
 
+div{
+    transition: transform 4s;
+}
+
 div:hover{
-    transition-duration: 4s;
-    transform:scaleX(0.5)
+    transform:scaleX(0.5);
 }
 
 .rectangles2{
