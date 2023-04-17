@@ -83,7 +83,6 @@ function countCorrect() {
   return [correctBoth, correctColor];
 }
 
-// eslint-disable-next-line
 function fillNextRow() {
   // console.log('entered fillnextrow');
 
@@ -122,6 +121,7 @@ function fillNextRow() {
     // console.log("You win!");
     const pWin = document.getElementById('youwin');
     pWin.style.display = 'block';
+    pWin.innerHTML = `You win, it took ${currentRow} tries`;
   }
 
   if (currentRow > 7) {
@@ -130,3 +130,6 @@ function fillNextRow() {
     pLose.style.display = 'block';
   }
 }
+
+const submitForm = document.getElementById('Submit');
+submitForm.addEventListener('click', fillNextRow);
