@@ -3,6 +3,7 @@ const context = canvas.getContext('2d');
 
 const colors = ['purple', 'pink', 'green', 'red', 'blue', 'yellow'];
 const generatedColors = [];
+let age = 0;
 
 for (let i = 0; i < 4; i++) {
   let newColor = false;
@@ -25,8 +26,13 @@ for (let i = 0; i < 4; i++) {
 let currentRow = 0;
 
 const colorform = document.getElementById('colorform');
+const ageForm = document.getElementById('ageform');
 
 colorform.addEventListener('submit', (event) => {
+  event.preventDefault();
+});
+
+ageForm.addEventListener('submit', (event) => {
   event.preventDefault();
 });
 
@@ -121,15 +127,24 @@ function fillNextRow() {
     // console.log("You win!");
     const pWin = document.getElementById('youwin');
     pWin.style.display = 'block';
-    pWin.innerHTML = `You win, it took ${currentRow} tries`;
+    pWin.innerHTML = `You win, it took ${currentRow} tries and you're ${age} years old`;
   }
 
   if (currentRow > 7) {
     // console.log("You lose!");
     const pLose = document.getElementById('youlose');
     pLose.style.display = 'block';
+    pLose.innerHTML = `You lose and you're ${age} years old`;
   }
 }
 
 const submitForm = document.getElementById('Submit');
 submitForm.addEventListener('click', fillNextRow);
+
+function setAge() {
+  age = document.getElementById('age').value;
+  // console.log(age);
+}
+
+const submitAge = document.getElementById('age');
+submitAge.addEventListener('click', setAge);
