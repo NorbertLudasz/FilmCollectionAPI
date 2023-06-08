@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>reviewspage</title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+    <script src="/ajax.js" type="text/javascript">
+  
+    </script>
+  </head>
+  <body>
+    <div id="navbar">
+      <span><a href="/">films</a></span>
+    </div>
+
+    <h1>Selected Film's Reviews</h1>
+    <% if (filmek.length) { %>
+
+        <% filmek.forEach((films) => { %>
+          <table>
+            <tr><th>Cim</th><th>Ev</th><th>Leiras</th><th>Zsaner</th></tr>
+            <tr>
+              <td><%= films.cim %></td>
+              <td><code><%= films.ev %></code></td>
+              <td><%= films.leiras %></td>
+              <td><%= films.zsaner %></td>
+            </tr>
+          </table>
+          <form name="reviewuploadform" action="/uploadReview" method="POST" enctype="multipart/form-data">
+            <p>Upload Review</p>
+            <input type="number" name="feltoltesid" display="none" hidden id="feltoltesid" value="<%= films.id %>" required>
+            <label for = "feltoltesleiras">Leiras:</label><input type="text" name="feltoltesleiras" id="feltoltesleiras" required>
+            <label for = "feltoltesrating">Rating:</label><input type="number" name="feltoltesrating" id="feltoltesrating" required>
+            <label>Felhasznalo</label>
+            <select name="feltoltesfelh" id="feltoltesfelh">
+              <% felhasznalok.forEach((felh)=> { %>
+                <option value="<%= felh %>"> <%= felh %></option>
+              <% }) %>
+            </select>
+            <input type="submit" value="Upload" id="submit2">
+          </form>
+        <% }) %>
+
+    <% } else { %>
+      <p class="message">No films to show</p>
+    <% } %>
+
+  <% if (reviews.length) { %>
+    <table>
+      <tr id="reviewheader"><th>Leiras</th><th>Rating</th><th>Felhasznalo</th><th>Torles</th></tr>
+    <% reviews.forEach((review) => { %>
+        <tr id="review<%= review.id %>">
+          <td><%= review.reviewstext %></td>
+          <td><code><%= review.rating %></code></td>
+          <td><%= review.felhnev %></td>
+          <td><button id="reviewdelete/<%= review.id %>" onclick="reviewdel(<%= review.id %>)">Delete</button></td>
+        </tr>
+    <%}) %>
+      </table>
+  <% } else { %>
+    <p>No images to show</p>
+  <% } %>
+      
+  <div class="delreviewmessage" id="delreviewmessage"></div>
+
+    
+
+  </body>
+
+</html>

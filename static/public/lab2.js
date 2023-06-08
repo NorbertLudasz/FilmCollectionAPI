@@ -1,4 +1,4 @@
-const canvas = document.getElementById('canvas');
+/* const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 
 const colors = ['purple', 'pink', 'green', 'red', 'blue', 'yellow'];
@@ -127,14 +127,15 @@ function fillNextRow() {
     // console.log("You win!");
     const pWin = document.getElementById('youwin');
     pWin.style.display = 'block';
-    pWin.innerHTML = `You win, it took ${currentRow} tries and you're ${age} years old`;
+    // pWin.innerHTML = `You win, it took ${currentRow} tries and you're ${age} years old`;
+    pWin.textContent = `You win, it took ${currentRow} tries and you're ${age} years old`;
   }
 
   if (currentRow > 7) {
     // console.log("You lose!");
     const pLose = document.getElementById('youlose');
     pLose.style.display = 'block';
-    pLose.innerHTML = `You lose and you're ${age} years old`;
+    pLose.textContent = `You lose and you're ${age} years old`;
   }
 }
 
@@ -147,4 +148,4 @@ function setAge() {
 }
 
 const submitAge = document.getElementById('age');
-submitAge.addEventListener('click', setAge);
+submitAge.addEventListener('click', setAge); */
