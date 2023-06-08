@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>reviewspage</title>
     <link href="/style.css" rel="stylesheet" type="text/css">
-    <script src="/ajax.js" type="text/javascript">
+    <script src="/public/ajax.js" type="text/javascript">
   
     </script>
   </head>
@@ -26,7 +26,7 @@
               <td><%= films.zsaner %></td>
             </tr>
           </table>
-          <form name="reviewuploadform" action="/uploadReview" method="POST" enctype="multipart/form-data">
+          <form name="reviewuploadform" action="/uploadReview" method="POST" enctype="application/x-www-form-urlencoded">
             <p>Upload Review</p>
             <input type="number" name="feltoltesid" display="none" hidden id="feltoltesid" value="<%= films.id %>" required>
             <label for = "feltoltesleiras">Leiras:</label><input type="text" name="feltoltesleiras" id="feltoltesleiras" required>
@@ -37,7 +37,7 @@
                 <option value="<%= felh %>"> <%= felh %></option>
               <% }) %>
             </select>
-            <input type="submit" value="Upload" id="submit2">
+            <input type="submit" value="post" id="submit2">
           </form>
         <% }) %>
 

@@ -5,7 +5,7 @@
   <body>
     <%- include('partials/navbar.ejs') %>
     <p>Filter</p>
-    <form name="searchform" action="/searchFilms" method="POST" >
+    <form name="searchform" action="/searchFilms" method="POST" enctype="application/x-www-form-urlencoded">
       <label for="cimsearch">Cim:</label><input name="cimsearch" id="cimsearch" type="text" pattern="[a-zA-Z]*" required>
       <label for="zsanersearch">Zsaner:</label><input name="zsanersearch" id="zsanersearch" type="text" pattern="[a-zA-Z]*" required>
       <label for="evmin">Min Ev:</label><input name="evminsearch" id="evmin" type="number" required>

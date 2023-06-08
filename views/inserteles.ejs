@@ -5,7 +5,7 @@
     <%- include('partials/navbar.ejs') %>
     <% if(filmsZsanerek.length) { %>
 
-    <form name = "myform1" action="./submitFilms" method="POST">
+    <form name = "myform1" action="/submitFilms" method="POST" enctype="multipart/form-data">
       <p>Film posting</p>
       <label for="cim">Cim:</label><input name="cim" id="cim" type="text" required>
       <label for="ev">Ev:</label><input name="ev" id="ev" type="number" required>
@@ -17,7 +17,7 @@
         <% }) %>
       </select>
       <label for="boritokep">Photo:</label><input type="file" name="boritokep" id="boritokep" required>
-      <input type="submit" value="Post" id="submit">
+      <input type="submit" value="post" id="submit">
     </form>
     <% } %>
   </body>

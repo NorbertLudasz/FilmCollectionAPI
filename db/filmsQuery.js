@@ -2,11 +2,11 @@ import dbConnection from './connection.js';
 
 export const findSearchFilms = (req) => {
   console.log('findsearchfilmsbeli parameterek:');
-  console.log(req.fields.cimsearch, req.fields.zsanersearch, req.fields.evminsearch, req.fields.evmaxsearch);
+  console.log(req.body.cimsearch, req.body.zsanersearch, req.body.evminsearch, req.body.evmaxsearch);
   return dbConnection.executeQuery(
     `SELECT * FROM films WHERE films.cim LIKE 
     ? AND films.zsaner LIKE ? AND films.ev > ? AND films.ev < ?`,
-    [req.fields.cimsearch, req.fields.zsanersearch, req.fields.evminsearch, req.fields.evmaxsearch],
+    [req.body.cimsearch, req.body.zsanersearch, req.body.evminsearch, req.body.evmaxsearch],
   );
 };
 

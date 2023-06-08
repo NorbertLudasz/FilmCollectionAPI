@@ -1,10 +1,13 @@
 // Moduláris express router létrehozása
 
 import express from 'express';
+import bodyparser from 'body-parser';
 import * as db from '../db/filmsQuery.js';
 import * as validation from '../middleware/validation.js';
 
 const router = express.Router();
+// router.use(bodyparser.urlencoded({ extended: false }));
+// router.use(bodyparser.json());
 
 router.get(['/', '/index'], async (req, res) => {
   try {
@@ -26,14 +29,20 @@ router.post('/delete', async (req, res) => {
     res.status(500).render('error', { message: `Deletion unsuccessful: ${err.message}` });
   }
 });
-
+router.use(bodyparser.urlencoded());
 router.post('/searchFilms', async (request, response) => {
   try {
-    const cim = request.fields.cimsearch;
-    const zsaner = request.fields.zsanersearch;
-    const evmin = request.fields.evminsearch;
-    const evmax = request.fields.evmaxsearch;
+    // const cim = request.fields.cimsearch;
+    // const zsaner = request.fields.zsanersearch;
+    // const evmin = request.fields.evminsearch;
+    // const evmax = request.fields.evmaxsearch;
+    console.log('XD', request.body);
+    const cim = request.body.cimsearch;
+    const evmin = request.body.evminsearch;
+    const evmax = request.body.evmaxsearch;
+    const zsaner = request.body.zsanersearch;
     console.log(evmin);
+    console.log('XD', request.body, cim);
 
     if (!validation.existcheckSearch(cim, zsaner, evmin, evmax)) {
       response.status(500).render('error', { message: 'Searchfilms unsuccessful: Missing Input' });

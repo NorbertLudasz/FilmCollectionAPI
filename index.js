@@ -1,8 +1,9 @@
 import express from 'express';
 import morgan from 'morgan';
-import eformidable from 'express-formidable';
-import { existsSync, mkdirSync } from 'fs';
+// import eformidable from 'express-formidable';
+// import { existsSync, mkdirSync } from 'fs';
 import * as p from 'path';
+// import fileUpload from 'express-fileupload';
 // import cookieParser from 'cookie-parser';
 
 import errorMiddleware from './middleware/error.js';
@@ -17,20 +18,19 @@ import requestRoutesMessage from './routes/message.js';
 import { createTable } from './db/createtableinit.js';
 // import logincheck from './middleware/loginchecker.js';
 
-const uploadDir = p.join(process.cwd(), 'static/uploadDir');
-if (!existsSync(uploadDir)) {
-  mkdirSync(uploadDir);
-}
+// const uploadDir = p.join(process.cwd(), 'public/uploadDir'); // static/uploadDir volt
+// if (!existsSync(uploadDir)) {
+//   mkdirSync(uploadDir);
+// }
 
 const app = express();
 
-app.use(eformidable({ uploadDir, multiples: true }));
+// app.use(eformidable({ uploadDir, multiples: true }));
 // app.use(cookieParser());
 app.set('view engine', 'ejs');
 app.set('views', p.join(process.cwd(), 'views'));
 
 app.use(morgan('tiny'));
-
 // app.use(logincheck);
 app.use('/', requestRoutes);
 app.use('/inserteles', requestRoutesInsert);
@@ -40,7 +40,7 @@ app.use('/message', requestRoutesMessage);
 // app.use('/reviewdel', requestRoutesReviewdel);
 // app.use('/register', requestRoutesRegister);
 // app.use('/login', requestRoutesLogin);
-app.use(express.static(p.join(process.cwd(), 'static')));
+app.use(express.static(p.join(process.cwd(), 'public'))); // static volt
 
 app.use(errorMiddleware);
 

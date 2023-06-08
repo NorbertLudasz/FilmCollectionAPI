@@ -7,7 +7,6 @@ async function getMessage(filmID) {
     const fetchresult = await fetch(`/message/${filmID}`);
     const jsonresult = await fetchresult.json();
     console.log(jsonresult);
-    // eslint-disable-next-line
     document.getElementById('elrejtett').innerText = `Zsaner: ${jsonresult.zsaner}, Leiras: ${jsonresult.leiras}`;
   } catch (err) {
     console.log(err);
@@ -18,13 +17,15 @@ async function getMessage(filmID) {
 async function reviewdel(reviewid) {
   try {
     console.log('reviewdel eleje');
-    await fetch(`/reviewDel/${reviewid}`, { method: 'delete' });
+    const response = await fetch(`/reviewDel/${reviewid}`, { method: 'delete' });
     console.log('reviewDel after await');
     console.log('reviewid');
     console.log(reviewid);
-    // eslint-disable-next-line
-    document.getElementById(`review${reviewid}`).remove();
+    if (response.ok) {
+      document.getElementById(`review${reviewid}`).remove();
+    }
   } catch (err) {
+    // ird ki hogy hiba volt kepernyore is
     console.log(err);
   }
 }
