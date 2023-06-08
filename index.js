@@ -3,7 +3,6 @@ import morgan from 'morgan';
 // import eformidable from 'express-formidable';
 // import { existsSync, mkdirSync } from 'fs';
 import * as p from 'path';
-// import fileUpload from 'express-fileupload';
 // import cookieParser from 'cookie-parser';
 
 import errorMiddleware from './middleware/error.js';

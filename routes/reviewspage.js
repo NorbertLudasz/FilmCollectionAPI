@@ -1,5 +1,4 @@
 import bodyparser from 'body-parser';
-// import express from 'express';
 import * as db from '../db/filmsQuery.js';
 import * as dbreviews from '../db/reviewsQuery.js';
 import * as dbfelhasznalo from '../db/felhasznaloQuery.js';
@@ -10,14 +9,9 @@ router.use(bodyparser.urlencoded());
 router.post('/uploadReview', async (req, res) => {
   console.log(req.body.feltoltesid, req.body, req.headers);
   try {
-    /* const rating = request.fields.feltoltesrating;
-    const leiras = request.fields.feltoltesleiras;
-    const filmid = parseInt(request.fields.feltoltesid, 10);
-    const felhnev = request.fields.feltoltesfelh; */
     const rating = req.body.feltoltesrating;
     const leiras = req.body.feltoltesleiras;
     const filmid = parseInt(req.body.feltoltesid, 10);
-    // console.log(filmid, request.body.feltoltesid, request.body, request.fields);
     const felhnev = req.body.feltoltesfelh;
 
     const rgx = String(filmid).match(/[0-9]*/);
@@ -37,7 +31,8 @@ router.post('/uploadReview', async (req, res) => {
     res.render('reviews', { filmek, reviews, felhasznalok });
   } catch (err) {
     console.log(err);
-    res.status(500).render('error', { message: 'Review Upload unsuccessful' });
+    res.status(500);
+    res.end();
   }
 });
 
@@ -50,8 +45,6 @@ router.delete('/reviewDel/:id', async (req, res) => {
     res.status(204);
     res.end();
   } catch (err) {
-    // res.status(500).render('error', { message: 'reviewdel routerget unsuccessful' });
-    // json-t kuldunk vissza nem renderelunk, masiknal is
     res.status(500);
     res.end();
   }

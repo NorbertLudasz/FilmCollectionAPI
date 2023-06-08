@@ -32,17 +32,11 @@ router.post('/delete', async (req, res) => {
 router.use(bodyparser.urlencoded());
 router.post('/searchFilms', async (request, response) => {
   try {
-    // const cim = request.fields.cimsearch;
-    // const zsaner = request.fields.zsanersearch;
-    // const evmin = request.fields.evminsearch;
-    // const evmax = request.fields.evmaxsearch;
-    console.log('XD', request.body);
     const cim = request.body.cimsearch;
     const evmin = request.body.evminsearch;
     const evmax = request.body.evmaxsearch;
     const zsaner = request.body.zsanersearch;
-    console.log(evmin);
-    console.log('XD', request.body, cim);
+    console.log('searchfilms req body', request.body);
 
     if (!validation.existcheckSearch(cim, zsaner, evmin, evmax)) {
       response.status(500).render('error', { message: 'Searchfilms unsuccessful: Missing Input' });
