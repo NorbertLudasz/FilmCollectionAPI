@@ -48,3 +48,18 @@ export const findSaltByNev = (req) => {
   console.log('findsaltbynev', req);
   return dbConnection.executeQuery('SELECT salt FROM felhasznalo WHERE felhasznalo.nev = ?', [req]);
 };
+
+export const findHashed = (req) => {
+  console.log('findhashed', req);
+  return dbConnection.executeQuery('SELECT jelszo FROM felhasznalo WHERE felhasznalo.nev = ?', [req]);
+};
+
+export const findRole = (req) => {
+  console.log('findrole', req);
+  return dbConnection.executeQuery('SELECT szerep FROM felhasznalo WHERE felhasznalo.nev = ?', [req]);
+};
+
+export const updateFelhasznaloRoleByID = (id, role) => {
+  console.log('updatefelhaszalobyid');
+  return dbConnection.executeQuery('UPDATE felhasznalo SET szerep = ? WHERE id = ?', [role, id]);
+};

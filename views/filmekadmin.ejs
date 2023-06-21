@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
   <%- include('partials/headallfilms.ejs', { title: 'Online filmgyujtemeny' }) %>
 </head>
   <body>
     <%- include('partials/navbar.ejs') %>
     <p>Filter</p>
-    <form name="searchform" action="/searchFilms" method="POST" enctype="application/x-www-form-urlencoded">
+    <form name="searchform" action="/searchFilmsAdmin" method="POST" enctype="application/x-www-form-urlencoded">
       <label for="cimsearch">Cim:</label><input name="cimsearch" id="cimsearch" type="text" pattern="[a-zA-Z]*" required>
       <label for="zsanersearch">Zsaner:</label><input name="zsanersearch" id="zsanersearch" type="text" pattern="[a-zA-Z]*" required>
       <label for="evmin">Min Ev:</label><input name="evminsearch" id="evmin" type="number" required>
@@ -16,13 +15,15 @@
     <h1>Posted Films</h1>
     <% if (filmek.length) { %>
       <table>
-        <tr><th>Cim</th><th>Ev</th><th>Reviews</th><th>Boritokep</th></tr>
+        <tr><th>Cim</th><th>Ev</th><th>Reviews</th><th>Boritokep</th><th>Update</th><th>Delete</th></tr>
         <% filmek.forEach((films) => { %>
-          <div id="divrowjq"><tr id="rowjq" onclick="getMessage(<%= films.id %>)">
+          <div id="divrowjq"><tr id="film<%= films.id %>" onclick="getMessage(<%= films.id %>)">
             <td id="markajq"><%= films.cim %></td>
             <td id="varosjq"><code><%= films.ev %></code></td>
             <td id="reviewjq"><a href = "/films/<%= films.id %>">Reviews</a></td>
             <td id="kepjq"><img id="keep/<%= films.id %>" src="/uploadDir/<%= films.boritokep %>" alt="<%= films.boritokep %>"></td>
+            <td id="updatejq"><a href = "/updatefilm/<%= films.id %>">Update</a></td>
+            <td><button id="filmdelete/<%= films.id %>" onclick="filmdel(<%= films.id %>)">Delete</button></td>
           </tr>
           </div>
         <% }) %>
@@ -33,6 +34,8 @@
 
     <h2>Details of selected row</h2>
     <div class="elrejtett" id="elrejtett"></div>
+
+    <div class="delfilmmessage" id="delfilmmessage"></div>
 
   </body>
 </html>

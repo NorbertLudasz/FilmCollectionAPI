@@ -15,6 +15,11 @@ export const findReviewByID = (req) => {
   return dbConnection.executeQuery('SELECT * FROM reviews WHERE reviews.id = ?', req);
 };
 
+export const findAllreviewsByNev = (req) => {
+  console.log('findAllreviewsByNev');
+  return dbConnection.executeQuery('SELECT * FROM reviews WHERE reviews.felhnev = ?', req);
+};
+
 export const insertreviews = (rwtext, rate, filmnum, felhnev) => {
   console.log(rwtext, rate, filmnum);
   return dbConnection.executeQuery('INSERT INTO reviews (reviewstext, rating, filmid, felhnev) VALUES (?, ?, ?, ?)', [
@@ -33,4 +38,9 @@ export const deleteAllreviews = () => {
 export const deletereviewsById = (id) => {
   console.log('reviewsDelete');
   return dbConnection.executeQuery('DELETE FROM reviews WHERE reviews.id = ?', id);
+};
+
+export const updatereviewsByID = (id, rwtext, rate) => {
+  console.log('updatereviewbyid');
+  return dbConnection.executeQuery('UPDATE reviews SET reviewstext = ?, rating = ?,  WHERE id = ?', [rwtext, rate, id]);
 };

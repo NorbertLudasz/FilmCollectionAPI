@@ -1,7 +1,10 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-  background-image: url(https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80);
+  background-image: url(https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1156&q=80);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -38,4 +41,22 @@ tr:nth-of-type(odd){
 
 tr:first-of-type{
   background: #f0cc05;
+}
+
+#navbar {
+  background-color: gold;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.navbar-button {
+  background-color: rgba(255, 255, 255, 0.5);
+  display: inline-block;
+  cursor: pointer;
+  color: black;
+  border: none;
+  margin: 5px;
 }

@@ -20,6 +20,19 @@ export const findfilmsByID = (req) => {
   return dbConnection.executeQuery('SELECT * FROM films WHERE films.id = ?', req);
 };
 
+export const deletefilmsByID = (req) => {
+  console.log('deletefilmbyid', req);
+  return dbConnection.executeQuery('DELETE FROM films WHERE films.id = ?', req);
+};
+
+export const updatefilmsByID = (req) => {
+  console.log('updatefilmbyid', req);
+  return dbConnection.executeQuery(
+    'UPDATE films SET cim = ?, ev = ?, leiras = ?, zsaner = ?, boritokep = ? WHERE id = ?',
+    [req.cim, req.ev, req.leiras, req.zsaner, req.boritokep, req.id],
+  );
+};
+
 export const findAllCim = () => {
   const query = 'SELECT DISTINCT films.cim FROM films';
   return dbConnection.executeQuery(query);

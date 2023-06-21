@@ -15,7 +15,6 @@
 
     <h1>Selected Film's Reviews</h1>
     <% if (filmek.length) { %>
-
         <% filmek.forEach((films) => { %>
           <table>
             <tr><th>Cim</th><th>Ev</th><th>Leiras</th><th>Zsaner</th></tr>
@@ -26,17 +25,16 @@
               <td><%= films.zsaner %></td>
             </tr>
           </table>
-          <form name="reviewuploadform" action="/uploadReview" method="POST" enctype="application/x-www-form-urlencoded">
+          <form name="reviewuploadform" action="/uploadReviewtemp" method="POST" enctype="application/x-www-form-urlencoded">
             <p>Upload Review</p>
             <input type="number" name="feltoltesid" display="none" hidden id="feltoltesid" value="<%= films.id %>" required>
             <label for = "feltoltesleiras">Leiras:</label><input type="text" name="feltoltesleiras" id="feltoltesleiras" required>
             <label for = "feltoltesrating">Rating:</label><input type="number" name="feltoltesrating" id="feltoltesrating" required>
-            <label>Felhasznalo</label>
-            <select name="feltoltesfelh" id="feltoltesfelh">
+            <!-- <select name="feltoltesfelh" id="feltoltesfelh">
               <% felhasznalok.forEach((felh)=> { %>
                 <option value="<%= felh %>"> <%= felh %></option>
               <% }) %>
-            </select>
+            </select> -->
             <input type="submit" value="post" id="submit2">
           </form>
         <% }) %>
@@ -45,20 +43,26 @@
       <p class="message">No films to show</p>
     <% } %>
 
+  <% let totalRating = 0; %>
+
   <% if (reviews.length) { %>
+    <p>Number of reviews: <%= reviews.length %></p>
     <table>
-      <tr id="reviewheader"><th>Leiras</th><th>Rating</th><th>Felhasznalo</th><th>Torles</th></tr>
+      <tr id="reviewheader"><th>Leiras</th><th>Rating</th><th>Felhasznalo</th></tr>
     <% reviews.forEach((review) => { %>
         <tr id="review<%= review.id %>">
           <td><%= review.reviewstext %></td>
           <td><code><%= review.rating %></code></td>
           <td><%= review.felhnev %></td>
-          <td><button id="reviewdelete/<%= review.id %>" onclick="reviewdel(<%= review.id %>)">Delete</button></td>
         </tr>
+        <% totalRating = totalRating + review.rating; %>
     <%}) %>
       </table>
+      <% if (reviews.length) { %>
+        <p>Average rating: <%= totalRating / reviews.length %></p>
+    <% } %>
   <% } else { %>
-    <p>No images to show</p>
+    <p>No reviews to show</p>
   <% } %>
       
   <div class="delreviewmessage" id="delreviewmessage"></div>

@@ -1,33 +1,22 @@
-// Moduláris express router létrehozása
-
-import express from 'express';
 import bodyparser from 'body-parser';
 import * as db from '../db/filmsQuery.js';
 import * as validation from '../middleware/validation.js';
 
-const router = express.Router();
+import router from './mainrouter.js';
 
-router.get(['/', '/index'], async (req, res) => {
+router.get(['/filmekadmin'], async (req, res) => {
   try {
     const filmek = await db.findAllfilms();
-    res.render('filmek', { filmek });
-    console.log('rendered filmek', res.locals);
+    console.log(filmek);
+    res.render('filmekadmin', { filmek });
+    console.log('rendered filmekadmin');
   } catch (err) {
     res.status(500).render('error', { message: `Selection unsuccessful: ${err.message}` });
   }
 });
 
-router.post('/delete', async (req, res) => {
-  try {
-    console.log('bementem a deletebe');
-    await db.deleteAllfilms();
-    res.render('filmek', { films: [] });
-  } catch (err) {
-    res.status(500).render('error', { message: `Deletion unsuccessful: ${err.message}` });
-  }
-});
 router.use(bodyparser.urlencoded());
-router.post('/searchFilms', async (request, response) => {
+router.post('/searchFilmsAdmin', async (request, response) => {
   try {
     const cim = request.body.cimsearch;
     const evmin = request.body.evminsearch;
@@ -45,7 +34,7 @@ router.post('/searchFilms', async (request, response) => {
       return;
     }
     const filmek = await db.findSearchFilms(request);
-    response.render('filmek', { filmek });
+    response.render('filmekadmin', { filmek });
   } catch (err) {
     response.status(500).render('error', { message: `Searchfilms unsuccessful: ${err.message}` });
   }

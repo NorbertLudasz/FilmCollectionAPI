@@ -46,16 +46,16 @@ export function namechecker(a, cims, b, zsaners) {
   return a === cims && b === zsaners;
 }
 
-// export function usercheckReg(nev, szerep) {
-//   if (!nev.match(/[A-Za-z]*/) || (szerep !== 'admin' && szerep !== 'user')) {
-//     return false;
-//   }
-//   return true;
-// }
+export function usercheckReg(nev, szerep) {
+  if (!nev.match(/[A-Za-z]*/) || (szerep !== 'admin' && szerep !== 'user')) {
+    return false;
+  }
+  return true;
+}
 
-// export function usercheckLogin(nev) {
-//   if (!nev.match(/[A-Za-z]*/)) {
-//     return false;
-//   }
-//   return true;
-// }
+export function usercheckLogin(nev) {
+  if (!nev.match(/[A-Za-z]*/)) {
+    return false;
+  }
+  return true;
+}

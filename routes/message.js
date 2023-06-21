@@ -7,7 +7,6 @@ router.get('/message/:id', async (req, res) => {
     const filmsID = req.params.id;
     const filmsSor = await db.findfilmsByID(filmsID);
     console.log('messagejs filmssor', filmsSor);
-    // res.send(JSON.stringify(filmsSor[0]));
     res.send(filmsSor[0]);
     res.end();
   } catch (err) {

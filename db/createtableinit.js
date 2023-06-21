@@ -27,6 +27,15 @@ export const createTable = async () => {
       salt varchar(100),
       primary key (id));
     `);
+    await dbConnection.executeQuery(`CREATE TABLE IF NOT EXISTS reviewstemp (
+      id int auto_increment,
+      reviewstext varchar(100),
+      rating int,
+      filmid int,
+      felhnev varchar(100),
+      status varchar(100),
+      primary key(id));
+    `);
     console.log('Table created successfully');
   } catch (err) {
     console.error(`Create table error: ${err}`);
