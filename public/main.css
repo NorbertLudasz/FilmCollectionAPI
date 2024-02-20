@@ -1,0 +1,182 @@
+body {
+    background-image: url('bigcat.jpg');
+    background-attachment: fixed;
+    color: beige
+}
+
+nav p {
+    color:aqua;
+    font-size: 1em;
+}
+
+nav>a {
+    border: 1px black solid;
+    background-color: antiquewhite;
+    padding: 1em;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.nav1>a:visited{
+    color: purple;
+    text-decoration: double
+}
+
+.nav1>a:hover{
+    color: green;
+    text-decoration: overline
+}
+
+.nav1>a:active{
+    color: blue;
+    text-decoration: wavy
+}
+
+.nav2>a:visited{
+    color: red;
+    text-decoration: double
+}
+
+.nav2>a:hover{
+    color: yellow;
+    text-decoration: overline
+}
+
+.nav2>a:active{
+    color: white;
+    text-decoration: wavy
+}
+
+nav{
+    margin-bottom: 40px;
+}
+
+.divstyle{
+    text-align:left;
+    padding-left: 1em;
+    padding-right: 5em;
+    border-style: dashed;
+    border-width: 10px;
+}
+
+table tr:nth-child(odd) td:nth-child(even), table tr:nth-child(even) td:nth-child(odd){
+    background-color: orange;
+    color: black;
+    text-align: center
+}
+
+table tr:nth-child(odd) td:nth-child(odd), table tr:nth-child(even) td:nth-child(even){
+    background-color: white;
+    color: black;
+    text-align: center
+}
+
+.imgarea {
+    position: relative;
+}
+
+.left{
+    position: absolute;
+    left: 3%;
+    top: 50%;
+    font-size:x-large;
+    color: brown
+}
+
+.right{
+    position: absolute;
+    left: 85%;
+    top: 50%;
+    font-size:x-large;
+    color: brown
+}
+
+@media (max-width: 600px) {
+    body {
+      background-color: silver;
+    }
+}
+
+.imagezoom input[type=checkbox],
+.colaimagezoom input[type=checkbox],
+.spriteimagezoom input[type=checkbox],
+.fantaimagezoom input[type=checkbox]{
+    display: none
+}
+
+.imagezoom input[type=checkbox]:checked~img, 
+.colaimagezoom input[type=checkbox]:checked~img, 
+.spriteimagezoom input[type=checkbox]:checked~img, 
+.fantaimagezoom input[type=checkbox]:checked~img{
+    margin: 20px;
+    transform: scale(3,3);
+}
+
+em, p{
+    color:orange;
+    background-color: teal;
+}
+
+.colah2{
+    color:red;
+    font-style: normal;
+}
+
+.spriteh2{
+    color:green;
+    font-style: italic;
+}
+
+.fantah2{
+    color: orange;
+    font-style: italic
+}
+
+h2.newclass, h3.newclass{
+    color:violet;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 10px;
+}
+
+.unorderedlistrows ul,
+.colaunorderedlistrows ul,
+.spriteunorderedlistrows ul,
+.fantaunorderedlistrows ul{ 
+    color:black;
+    list-style:square
+}
+
+.zoomer{
+    width:100%;
+}
+
+.rectangles{
+    transition: all;
+    background-color:green;
+    float: right;
+    height:800px;
+    width:800px
+}
+
+div{
+    transition: transform 4s;
+}
+
+div:hover{
+    transform:scaleX(0.5);
+}
+
+.rectangles2{
+    background-color:gold;
+    float: right;
+    height:400px;
+    width:400px
+}
+
+.rectangles3{
+    background-color:red;
+    float: right;
+    height:200px;
+    width:200px
+}

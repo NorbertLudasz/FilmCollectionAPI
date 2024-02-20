@@ -1,0 +1,18 @@
+<div id="navbar">
+  <% if (locals.nev) { %>
+    <span><%= locals.nev %></span>
+    <button class="navbar-button"><a href="/">Films</a></button>
+    <button class="navbar-button"><a href="inserteles">Upload Film</a></button>
+    <button class="navbar-button"><a href="/ownreviews">My Reviews</a></button>
+    <button class="navbar-button"><a href="/logout">Log out</a></button>
+    <% if(locals.role === 'admin') {%>
+      <button class="navbar-button"><a href="/filmekadmin">Manage Films</a></button>
+      <button class="navbar-button"><a href="/reviewsadmin">Pending Reviews</a></button>
+      <button class="navbar-button"><a href="/userspage">Users</a></button>
+    <% } %>
+  <% } else { %>
+    <button class="navbar-button"><a href="/">Films</a></button>
+    <button class="navbar-button"><a href="/login">Login</a></button>
+    <button class="navbar-button"><a href="/register">Register</a></button>
+  <% } %>
+</div>

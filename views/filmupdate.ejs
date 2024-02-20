@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <%- include('partials/head.ejs', { title: 'Online film collection' }) %>
+</head>
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    <% if(filmsZsanerek.length) { %>
+
+    <form name = "myform1" action=<%=`/updateFilms/${id}`%> method="POST" enctype="multipart/form-data">
+      <p>Film update</p>
+      <label for="cim">Title:</label><input name="cim" id="cim" type="text" required>
+      <label for="ev">Year:</label><input name="ev" id="ev" type="number" required>
+      <label for="leiras">Description:</label><input name="leiras" id="leiras" type="text" required>
+      <label>Genre</label>
+      <select name="zsaner" id="zsaner">
+      <% filmsZsanerek.forEach((filmsZsaner)=> { %>
+        <option value="<%= filmsZsaner %>"> <%= filmsZsaner %></option>
+        <% }) %>
+      </select>
+      <label for="boritokep">Photo:</label><input type="file" name="boritokep" id="boritokep" required>
+      <input type="submit" value="post" id="submit" >
+    </form>
+    <% } %>
+  </body>
+</html>

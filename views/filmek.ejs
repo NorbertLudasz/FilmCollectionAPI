@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <%- include('partials/headallfilms.ejs', { title: 'Online film collection' }) %>
+</head>
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    <p>Filter</p>
+    <form name="searchform" action="/searchFilms" method="POST" enctype="application/x-www-form-urlencoded">
+      <label for="cimsearch">Title:</label><input name="cimsearch" id="cimsearch" type="text" pattern="[a-zA-Z]*" required>
+      <label for="zsanersearch">Genre:</label><input name="zsanersearch" id="zsanersearch" type="text" pattern="[a-zA-Z]*" required>
+      <label for="evmin">Earliest Year:</label><input name="evminsearch" id="evmin" type="number" required>
+      <label for="evmax">Latest Year:</label><input name="evmaxsearch" id="evmax" type="number" required>
+      <input type="submit" value="Filter" id="submit3">
+    </form>
+    <h1>Posted Films</h1>
+    <% if (filmek.length) { %>
+      <table>
+        <tr><th>Title</th><th>Year</th><th>Reviews</th><th>Cover</th></tr>
+        <% filmek.forEach((films) => { %>
+          <div id="divrowjq"><tr id="rowjq" onclick="getMessage(<%= films.id %>)">
+            <td id="markajq"><%= films.cim %></td>
+            <td id="varosjq"><code><%= films.ev %></code></td>
+            <td id="reviewjq"><a href = "/films/<%= films.id %>">Reviews</a></td>
+            <td id="kepjq"><img id="keep/<%= films.id %>" src="/uploadDir/<%= films.boritokep %>" alt="<%= films.boritokep %>"></td>
+          </tr>
+          </div>
+        <% }) %>
+      </table>
+    <% } else { %>
+      <p class="message">No films to show</p>
+    <% } %>
+
+    <h2>Details of selected row</h2>
+    <div class="elrejtett" id="elrejtett"></div>
+
+  </body>
+</html>

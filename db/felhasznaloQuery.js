@@ -1,0 +1,65 @@
+import dbConnection from './connection.js';
+
+export const findAllFelhasznalo = () => {
+  const query = 'SELECT * FROM felhasznalo';
+  return dbConnection.executeQuery(query);
+};
+
+export const findFelhasznaloByID = (req) => {
+  console.log('findfelhbyid');
+  return dbConnection.executeQuery('SELECT * FROM felhasznalo WHERE felhasznalo.id = ?', req);
+};
+
+export const findFelhasznaloByNev = (req) => {
+  console.log('findfelhbynev');
+  return dbConnection.executeQuery('SELECT * FROM felhasznalo WHERE felhasznalo.nev = ?', req);
+};
+
+export const findFelhasznaloNevOnly = (req) => {
+  console.log('findfelhnevonly', req);
+  return dbConnection.executeQuery('SELECT nev FROM felhasznalo');
+};
+
+export const insertFelhasznalo = (req) => {
+  console.log('insertFelhasznalo');
+  console.log(req.nev, req.jelszo, req.szerep);
+  return dbConnection.executeQuery('INSERT INTO felhasznalo (nev, jelszo, szerep, salt) VALUES (?, ?, ?, ?)', [
+    req.nev,
+    req.jelszo,
+    req.szerep,
+    req.salt,
+  ]);
+};
+
+export const findFelhasznaloByNevJelszo = (req) => {
+  console.log('findFelhasznaloByNevJelszo');
+  return dbConnection.executeQuery('SELECT id FROM felhasznalo WHERE felhasznalo.nev = ? AND felhasznalo.jelszo = ?', [
+    req.nev,
+    req.jelszo,
+  ]);
+};
+
+export const deleteAllFelhasznalo = () => {
+  const query = 'DELETE * FROM felhasznalo';
+  return dbConnection.executeQuery(query);
+};
+
+export const findSaltByNev = (req) => {
+  console.log('findsaltbynev', req);
+  return dbConnection.executeQuery('SELECT salt FROM felhasznalo WHERE felhasznalo.nev = ?', [req]);
+};
+
+export const findHashed = (req) => {
+  console.log('findhashed', req);
+  return dbConnection.executeQuery('SELECT jelszo FROM felhasznalo WHERE felhasznalo.nev = ?', [req]);
+};
+
+export const findRole = (req) => {
+  console.log('findrole', req);
+  return dbConnection.executeQuery('SELECT szerep FROM felhasznalo WHERE felhasznalo.nev = ?', [req]);
+};
+
+export const updateFelhasznaloRoleByID = (id, role) => {
+  console.log('updatefelhaszalobyid');
+  return dbConnection.executeQuery('UPDATE felhasznalo SET szerep = ? WHERE id = ?', [role, id]);
+};
