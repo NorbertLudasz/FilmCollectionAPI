@@ -15,7 +15,7 @@
   <% if (reviewstemp.length) { %>
     <p>Number of unaccepted reviews: <%= reviewstemp.length %></p>
     <table>
-      <tr id="reviewheader"><th>Leiras</th><th>Rating</th><th>Felhasznalo</th><th>Torles</th></tr>
+      <tr id="reviewheader"><th>Description</th><th>Rating</th><th>User</th><th>Delete</th></tr>
     <% reviewstemp.forEach((reviewtemp) => { %>
         <tr id="reviewtemp<%= reviewtemp.id %>">
           <td><%= reviewtemp.reviewstext %></td>

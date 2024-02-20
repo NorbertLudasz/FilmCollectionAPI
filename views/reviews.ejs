@@ -17,7 +17,7 @@
     <% if (filmek.length) { %>
         <% filmek.forEach((films) => { %>
           <table>
-            <tr><th>Cim</th><th>Ev</th><th>Leiras</th><th>Zsaner</th></tr>
+            <tr><th>Title</th><th>Year</th><th>Description</th><th>Genre</th></tr>
             <tr>
               <td><%= films.cim %></td>
               <td><code><%= films.ev %></code></td>
@@ -28,7 +28,7 @@
           <form name="reviewuploadform" action="/uploadReviewtemp" method="POST" enctype="application/x-www-form-urlencoded">
             <p>Upload Review</p>
             <input type="number" name="feltoltesid" display="none" hidden id="feltoltesid" value="<%= films.id %>" required>
-            <label for = "feltoltesleiras">Leiras:</label><input type="text" name="feltoltesleiras" id="feltoltesleiras" required>
+            <label for = "feltoltesleiras">Description:</label><input type="text" name="feltoltesleiras" id="feltoltesleiras" required>
             <label for = "feltoltesrating">Rating:</label><input type="number" name="feltoltesrating" id="feltoltesrating" required>
             <!-- <select name="feltoltesfelh" id="feltoltesfelh">
               <% felhasznalok.forEach((felh)=> { %>
@@ -48,7 +48,7 @@
   <% if (reviews.length) { %>
     <p>Number of reviews: <%= reviews.length %></p>
     <table>
-      <tr id="reviewheader"><th>Leiras</th><th>Rating</th><th>Felhasznalo</th></tr>
+      <tr id="reviewheader"><th>Description</th><th>Rating</th><th>User</th></tr>
     <% reviews.forEach((review) => { %>
         <tr id="review<%= review.id %>">
           <td><%= review.reviewstext %></td>

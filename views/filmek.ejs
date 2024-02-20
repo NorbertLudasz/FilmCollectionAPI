@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <%- include('partials/headallfilms.ejs', { title: 'Online filmgyujtemeny' }) %>
+  <%- include('partials/headallfilms.ejs', { title: 'Online film collection' }) %>
 </head>
   <body>
     <%- include('partials/navbar.ejs') %>
     <p>Filter</p>
     <form name="searchform" action="/searchFilms" method="POST" enctype="application/x-www-form-urlencoded">
-      <label for="cimsearch">Cim:</label><input name="cimsearch" id="cimsearch" type="text" pattern="[a-zA-Z]*" required>
-      <label for="zsanersearch">Zsaner:</label><input name="zsanersearch" id="zsanersearch" type="text" pattern="[a-zA-Z]*" required>
-      <label for="evmin">Min Ev:</label><input name="evminsearch" id="evmin" type="number" required>
-      <label for="evmax">Max Ev:</label><input name="evmaxsearch" id="evmax" type="number" required>
+      <label for="cimsearch">Title:</label><input name="cimsearch" id="cimsearch" type="text" pattern="[a-zA-Z]*" required>
+      <label for="zsanersearch">Genre:</label><input name="zsanersearch" id="zsanersearch" type="text" pattern="[a-zA-Z]*" required>
+      <label for="evmin">Earliest Year:</label><input name="evminsearch" id="evmin" type="number" required>
+      <label for="evmax">Latest Year:</label><input name="evmaxsearch" id="evmax" type="number" required>
       <input type="submit" value="Filter" id="submit3">
     </form>
     <h1>Posted Films</h1>
     <% if (filmek.length) { %>
       <table>
-        <tr><th>Cim</th><th>Ev</th><th>Reviews</th><th>Boritokep</th></tr>
+        <tr><th>Title</th><th>Year</th><th>Reviews</th><th>Cover</th></tr>
         <% filmek.forEach((films) => { %>
           <div id="divrowjq"><tr id="rowjq" onclick="getMessage(<%= films.id %>)">
             <td id="markajq"><%= films.cim %></td>

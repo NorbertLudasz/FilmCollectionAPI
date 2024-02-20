@@ -7,7 +7,7 @@
     <%- include('partials/navbar.ejs') %>
     <p>Filter</p>
     <form name="searchform" action="/searchUsers" method="POST" enctype="application/x-www-form-urlencoded">
-      <label for="nevsearch">Nev:</label><input name="nevsearch" id="nevsearch" type="text" pattern="[a-zA-Z]*" required>
+      <label for="nevsearch">Name:</label><input name="nevsearch" id="nevsearch" type="text" pattern="[a-zA-Z]*" required>
       <input type="submit" value="Filter" id="submit4">
     </form>
     <h1>All Users</h1>

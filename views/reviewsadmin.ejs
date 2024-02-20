@@ -16,7 +16,7 @@
 <form name="reviewuploadform" action="/uploadReview" method="POST" enctype="application/x-www-form-urlencoded">
   <p>Accept Review</p>
   <label for="feltoltesid">Film ID:</label><input type="number" name="feltoltesid" id="feltoltesid" required>
-  <label for="feltoltesleiras">Leiras:</label><input type="text" name="feltoltesleiras" id="feltoltesleiras" required>
+  <label for="feltoltesleiras">Description:</label><input type="text" name="feltoltesleiras" id="feltoltesleiras" required>
   <label for="feltoltesrating">Rating:</label><input type="number" name="feltoltesrating" id="feltoltesrating" required>
   <input type="submit" value="post" id="submit2">
 </form>
@@ -24,7 +24,7 @@
 <% if (reviewstemp.length) { %>
   <p>Number of unaccepted reviews: <%= reviewstemp.length %></p>
   <table>
-    <tr id="reviewheader"><th>Leiras</th><th>Rating</th><th>Felhasznalo</th><th>Status</th><th>FilmID</th><th>Torles</th></tr>
+    <tr id="reviewheader"><th>Description</th><th>Rating</th><th>User</th><th>Status</th><th>FilmID</th><th>Delete</th></tr>
   <% reviewstemp.forEach((reviewtemp) => { %>
       <tr id="reviewtemp<%= reviewtemp.id %>">
         <td><%= reviewtemp.reviewstext %></td>
