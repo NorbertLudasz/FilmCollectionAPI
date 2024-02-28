@@ -9,7 +9,7 @@
 Users can upload their own films
 <img src="/imagesToShow/uploadfilm.png"/>
 Users can view the reviews a film has received
-<img src="/imagesToShow/reviews.png>
+<img src="/imagesToShow/reviews.png"/>
 Users can view their own reviews of different films, including accepted and pending ones
 <img src="/imagesToShow/ownReviews.png"/>
 Used cookies for authentication + authorization, with an admin and a basic user role
