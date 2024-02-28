@@ -6,14 +6,14 @@
 - Used ESlint for modularization, to achieve high code quality and fix coding style issues
 - Implemented filtering based on given terms
 <img src="/imagesToShow/films.png"/>
-- Users can upload their own films
+## Users can upload their own films
 <img src="/imagesToShow/uploadfilm.png"/>
-- Users can view the reviews a film has received
+## Users can view the reviews a film has received
 <img src="/imagesToShow/reviews.png>
-- Users can view their own reviews of different films, including accepted and pending ones
+## Users can view their own reviews of different films, including accepted and pending ones
 <img src="/imagesToShow/ownReviews.png"/>
-- Used cookies for authentication + authorization, with an admin and a basic user role
+## Used cookies for authentication + authorization, with an admin and a basic user role
 <img src="/imagesToShow/notAdmin1.png"/>
-- Admins have the right to designate others as admins, accept pending reviews, and delete existing ones, as well as delete films
+## Admins have the right to designate others as admins, accept pending reviews, and delete existing ones, as well as delete films
 <img src="/imagesToShow/userspage.png"/>
 <img src="/imagesToShow/acceptReviews.png"/>
