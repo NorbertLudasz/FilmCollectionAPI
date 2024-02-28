@@ -8,7 +8,7 @@
 <img src="/imagesToShow/films.png"/>
 ## Users can upload their own films
 <img src="/imagesToShow/uploadfilm.png"/>
-## Users can view the reviews a film has received
+##Users can view the reviews a film has received
 <img src="/imagesToShow/reviews.png>
 ## Users can view their own reviews of different films, including accepted and pending ones
 <img src="/imagesToShow/ownReviews.png"/>
